@@ -6,8 +6,10 @@ import Controller from '@ember/controller';
 //             console.log("hello");
 //         }
     
+// export default Ember.Controller.extend ({
 export default Ember.Controller.extend ({
     show_modal: false,
+    // router: Ember.inject.service('-routing'),
     actions: {
         close_confirmation() {
             Ember.Logger.info(`Archiving Cancelled`)
@@ -27,6 +29,8 @@ export default Ember.Controller.extend ({
                 }
               );
             this.set("show_modal",false)
+            this.transitionToRoute('users')
+            // this.get('router').transitionTo('users');
         },
         show_modal() {
             Ember.Logger.info(`Launching Modal`)
