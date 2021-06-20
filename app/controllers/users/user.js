@@ -1,21 +1,14 @@
 import Controller from '@ember/controller';
 
-// export default class UsersUserController extends Controller {
-//     actions: {
-//         archive: function() {
-//             console.log("hello");
-//         }
-    
-// export default Ember.Controller.extend ({
 export default Ember.Controller.extend ({
     show_modal: false,
-    // router: Ember.inject.service('-routing'),
     actions: {
         close_confirmation() {
             Ember.Logger.info(`Archiving Cancelled`)
             this.set("show_modal",false)
         },
         confirm_archive(user){
+            // Runs after user confirms to archive
             Ember.Logger.info(`Archiving User`)
             user.archived = true
             user.save()
@@ -29,10 +22,10 @@ export default Ember.Controller.extend ({
                 }
               );
             this.set("show_modal",false)
-            this.transitionToRoute('users')
-            // this.get('router').transitionTo('users');
+            // this.transitionToRoute('users')
         },
         show_modal() {
+            // Shows the archive confirmation model
             Ember.Logger.info(`Launching Modal`)
             this.set("show_modal",true)
         }
