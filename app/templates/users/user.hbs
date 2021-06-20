@@ -30,30 +30,8 @@
 
         {{!-- Place the component to archive/unarchive users here --}}
 
-        <div class="modal {{if show_modal "is-active is-clipped"}}" >
-            <div class="modal-background" {{action "close_confirmation"}}></div>
-            <div class="modal-content">
-              <div class="box">
-                <h1><b>Confirm</b></h1>
-                <p>Are you sure you would like to archive this user?</p>
-                <br/>
-                <button {{action "confirm_archive" model}} class="button is-info is-normal is-center">
-                Yes?
-                </button>
-                <button {{action "close_confirmation"}} class="button is-danger is-normal is-center">
-                No
-                </button>
-              </div>
-            </div>
-            <button {{action "close_confirmation"}} class="modal-close is-large" aria-label="close"></button>
-          </div>
+        {{archives/archive-button model=@model}}
 
-        {{#unless @model.archived }}
-
-          <button {{action "show_modal" model}} class="button is-dark is-normal is-pulled-right">
-            Archive
-          </button>
-        {{/unless}}
 
       </div>
     </div>

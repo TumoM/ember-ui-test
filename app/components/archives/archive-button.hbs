@@ -1,1 +1,28 @@
+<div id="archive_conf_modal" class="modal {{if this.show_modal "is-active is-clipped"}}" >
+            <div class="modal-background" {{action "close_confirmation"}}></div>
+            <div class="modal-content">
+              <div class="box">
+                <h1><b>Confirm</b></h1>
+                <p>Are you sure you would like to archive this user?</p>
+                <br/>
+                <button type="button" {{on "click" (fn this.confirm_archive @model)}} class="button is-info is-normal is-center">
+                Yes?
+                </button>
+                <button {{on "click" this.close_confirmation}}  class="button is-danger is-normal is-center">
+                No
+                </button>
+              </div>
+            </div>
+            <button {{on "click" this.close_confirmation}}  class="modal-close is-large" aria-label="close"></button>
+          </div>
+
+        {{#if @model.archived }} 
+          <button type="button" {{on "click" (fn this.unarchive @model) }} class="button is-warning is-normal is-pulled-right">
+            Unarchive
+          </button>
+        {{else}}
+          <button type="button" {{on "click" this.show_modal_box}} class="button is-dark is-normal is-pulled-right">
+            Archive
+          </button>
+        {{/if}}
 {{yield}}
