@@ -4,7 +4,7 @@
 
     {{#each @model as |user|}}
       {{#unless user.archived}}
-        <div class="column">
+        <div class="column user-card">
 
           <LinkTo @route="users.user" @model={{user}}>
             <div class="user-select is-220px">

@@ -3,7 +3,7 @@
     <div class="column is-3 is-offset-4">
 
       <LinkTo @route="users">
-        <button class="button mb-2" type="button">
+        <button id="users_back" class="button mb-2" type="button">
           Back to users
         </button>
       </LinkTo>
@@ -23,7 +23,7 @@
           {{@model.value}}
         </p>
 
-         <p class="subtitle has-text-white my-2">
+         <p id="archive_label" class="subtitle has-text-white my-2">
           Archived:
           {{@model.archived}}
         </p>
